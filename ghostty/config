@@ -1,10 +1,12 @@
 font-size = 14
+font-family = "JetBrains Mono"
 theme = "catppuccin-mocha"
+theme = "kratofl.conf"
 shell-integration-features = no-cursor,sudo,no-title
 cursor-style = block
-background-opacity = 0.6
-background = #140a00
-cursor-text = #1e1e2e
+# background-opacity = 0.6
+# background = #140a00
+# cursor-text = #1e1e2e
 
 mouse-hide-while-typing = true
 mouse-scroll-multiplier = 2
@@ -14,7 +16,7 @@ window-padding-y = 8
 window-padding-balance = true 
 window-save-state = always
 macos-titlebar-style = hidden
-background-blur = 50
+# background-blur = 50
 
 # keybindings
 keybind = cmd+s>r=reload_config
