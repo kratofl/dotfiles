@@ -1,0 +1,77 @@
+#!/bin/bash
+
+source "$CONFIG_DIR/colors.sh" # Loads all defined colors
+source "$CONFIG_DIR/icons.sh" # Loads all defined icons
+
+ITEM_DIR="$CONFIG_DIR/items" # Directory where the items are configured
+PLUGIN_DIR="$CONFIG_DIR/plugins" # Directory where all the plugin scripts are stored
+
+FONT="SF Pro" # Needs to have Regular, Bold, Semibold, Heavy and Black variants
+
+# Unload the macOS on screen indicator overlay for volume change
+launchctl unload -F /System/Library/LaunchAgents/com.apple.OSDUIHelper.plist > /dev/null 2>&1 &
+
+# Setting up the general bar appearance of the bar
+bar=(
+  height=$NUMBER_BAR_HEIGHT
+  color=$COLOR_BAR_FILL
+  border_color=$COLOR_BAR_BORDER
+  border_width=$NUMBER_BAR_BORDER_WIDTH
+  shadow=on
+  position=top
+  sticky=on
+  padding_right=$NUMBER_BAR_PADDING
+  padding_left=$NUMBER_BAR_PADDING
+  blur_radius=$BLUR
+  notch_width=0
+  corner_radius=$NUMBER_BAR_CORNER_RADIUS
+  margin=0
+  y_offset=00
+)
+
+sketchybar --bar "${bar[@]}"
+
+# Setting up default values
+defaults=(
+  updates=when_shown
+  icon.font="Hack Nerd Font:Bold:13.0"
+  icon.color=$COLOR_ITEM_NORMAL_ICON
+  icon.highlight_color=$COLOR_ITEM_ACTIVE_ICON
+  icon.padding_left=$NUMBER_ITEM_SPACE_INLINE
+  label.font="$FONT:Semibold:13.0"
+  label.color=$COLOR_ITEM_NORMAL_TEXT
+  label.highlight_color=$COLOR_ITEM_ACTIVE_TEXT
+  label.padding_left=$NUMBER_ITEM_SPACE_INLINE
+  label.padding_right=$NUMBER_ITEM_SPACE_INLINE
+  background.corner_radius=$NUMBER_ITEM_CORNER_RADIUS
+  background.color=$COLOR_ITEM_NORMAL_FILL
+  background.height=$NUMBER_ITEM_HEIGHT
+  background.border_color=$COLOR_ITEM_NORMAL_BORDER
+  background.border_width=$NUMBER_ITEM_NORMAL_BORDER_WIDTH
+  background.padding_right=5
+  background.highlight_color=$COLOR_ITEM_ACTIVE_FILL
+  scroll_texts=on
+)
+
+sketchybar --default "${defaults[@]}"
+
+# Left
+source "$ITEM_DIR/spaces.sh"
+
+# Center
+source "$ITEM_DIR/front_app.sh"
+
+# Right
+source "$ITEM_DIR/calendar.sh"
+source "$ITEM_DIR/wifi.sh"
+source "$ITEM_DIR/volume.sh"
+source "$ITEM_DIR/weather.sh"
+
+source "$ITEM_DIR/system_stats.sh"
+
+sketchybar --hotload on
+
+# Forcing all item scripts to run (never do this outside of sketchybarrc)
+sketchybar --update
+
+echo "sketchybar configuation loaded.."
