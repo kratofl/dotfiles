@@ -5,8 +5,10 @@ return {
     name = "catppuccin",
     flavour = "mocha",
     opts = {
-      custom_highlights = {
-        Normal = { bg = "#140a00", fg = "#fff9f5" },
+      color_overrides = {
+        mocha = {
+          base = "#140a00",
+        },
       },
       highlight_overrides = {
         mocha = function(mocha)
