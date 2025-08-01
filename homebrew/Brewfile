@@ -11,7 +11,9 @@ cask "ghostty"
 brew "fzf"
 brew "zoxide"
 brew "zsh"
+# Lazyvim
 brew "ripgrep"
+brew "fd"
 
 # languages
 brew "go"
