@@ -6,19 +6,19 @@ return {
         {
           "<leader>fe",
           function()
-            require("neo-tree.command").execute({ toggle = true, position = "float", dir = vim.uv.cwd() })
-          end,
-          desc = "Explorer NeoTree (cwd)",
-        },
-        {
-          "<leader>fE",
-          function()
             require("neo-tree.command").execute({ toggle = true, position = "float", dir = LazyVim.root() })
           end,
           desc = "Explorer NeoTree (Root Dir)",
         },
-        { "<leader>e", "<leader>fe", desc = "Explorer NeoTree (cwd)", remap = true },
-        { "<leader>E", "<leader>fE", desc = "Explorer NeoTree (Root Dir)", remap = true },
+        {
+          "<leader>fE",
+          function()
+            require("neo-tree.command").execute({ toggle = true, position = "float", dir = vim.uv.cwd() })
+          end,
+          desc = "Explorer NeoTree (cwd)",
+        },
+        { "<leader>e", "<leader>fe", desc = "Explorer NeoTree (Root Dir)", remap = true },
+        { "<leader>E", "<leader>fE", desc = "Explorer NeoTree (cwd)", remap = true },
         {
           "<leader>ge",
           function()
