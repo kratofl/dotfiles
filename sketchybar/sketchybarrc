@@ -1,23 +1,23 @@
 #!/bin/bash
 
 source "$CONFIG_DIR/colors.sh" # Loads all defined colors
-source "$CONFIG_DIR/icons.sh" # Loads all defined icons
+source "$CONFIG_DIR/icons.sh"  # Loads all defined icons
 
-ITEM_DIR="$CONFIG_DIR/items" # Directory where the items are configured
+ITEM_DIR="$CONFIG_DIR/items"     # Directory where the items are configured
 PLUGIN_DIR="$CONFIG_DIR/plugins" # Directory where all the plugin scripts are stored
 
 FONT="SF Pro" # Needs to have Regular, Bold, Semibold, Heavy and Black variants
 
 # Unload the macOS on screen indicator overlay for volume change
-launchctl unload -F /System/Library/LaunchAgents/com.apple.OSDUIHelper.plist > /dev/null 2>&1 &
+launchctl unload -F /System/Library/LaunchAgents/com.apple.OSDUIHelper.plist >/dev/null 2>&1 &
 
 # Setting up the general bar appearance of the bar
 bar=(
   height=$NUMBER_BAR_HEIGHT
   color=$COLOR_BAR_FILL
-  border_color=$COLOR_BAR_BORDER
-  border_width=$NUMBER_BAR_BORDER_WIDTH
-  shadow=on
+  #border_color=$COLOR_BAR_BORDER
+  #border_width=$NUMBER_BAR_BORDER_WIDTH
+  #shadow=on
   position=top
   sticky=on
   padding_right=$NUMBER_BAR_PADDING
@@ -25,8 +25,8 @@ bar=(
   blur_radius=$BLUR
   notch_width=0
   corner_radius=$NUMBER_BAR_CORNER_RADIUS
-  margin=0
-  y_offset=00
+  margin=10
+  y_offset=10
 )
 
 sketchybar --bar "${bar[@]}"

@@ -27,7 +27,7 @@ return {
         opts = function(_, opts)
           if (vim.g.colors_name or ""):find("catppuccin") then
             local mocha = require("catppuccin.palettes").get_palette("mocha")
-            opts.highlights = require("catppuccin.groups.integrations.bufferline").get({
+            opts.highlights = require("catppuccin.groups.integrations.bufferline").get_theme({
               custom = {
                 mocha = {
                   buffer_visible = {
