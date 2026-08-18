@@ -23,6 +23,22 @@ $HOME/.dotfiles/scripts/install.sh
 ```
 
 ## Configuration
+
+### AI coding
+
+The repository keeps shared AI coding configuration in `ai/`:
+
+- `ai/instructions.md` contains global instructions for both Codex and Claude Code.
+- `ai/skills/<skill-name>/SKILL.md` contains portable Agent Skills.
+
+The installation script links the global instructions to `~/.codex/AGENTS.md` and `~/.claude/CLAUDE.md`. Each skill is linked into both `~/.agents/skills/` for Codex and `~/.claude/skills/` for Claude Code. Existing non-empty files or directories are left untouched.
+
+After adding a skill, run the focused AI installer again to create its links:
+
+```bash
+$HOME/.dotfiles/scripts/install-ai.sh
+```
+
 ### Git
 Update your email and name in the git config. `$HOME/.config/git/config`
 ```config

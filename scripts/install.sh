@@ -4,7 +4,7 @@ DOTFILES="$HOME/.dotfiles"
 CONFIGS="$HOME/.config"
 
 # create symlinks
-SYMLINKs=()
+SYMLINKS=()
 # shell
 ln -sf "$DOTFILES/zsh/.zshrc" "$HOME/.zshrc"
 SYMLINKS+=(".zshrc")
@@ -23,15 +23,17 @@ SYMLINKS+=("aerospace")
 ln -sf "$DOTFILES/sketchybar" "$CONFIGS/sketchybar"
 SYMLINKS+=("sketchybar")
 
-print ${SYMLINKS[@]}
+printf 'Linked: %s\n' "${SYMLINKS[*]}"
 
-print "installing with homebrew ..."
+"$DOTFILES/scripts/install-ai.sh"
+
+printf 'installing with homebrew ...\n'
 cd homebrew
 brew bundle
 cd $DOTFILES
-print "... done"
+printf '... done\n'
 
-print "installing oh-my-zsh ..."
+printf 'installing oh-my-zsh ...\n'
 if [ ! -d "$HOME/.oh-my-zsh" ]; then
   sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 fi
@@ -39,7 +41,7 @@ fi
 # installing plugins
 git clone https://github.com/zsh-users/zsh-autosuggestions.git ${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
 git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting
-print "... done"
+printf '... done\n'
 
 # setting zsh as default
 chsh -s $(which zsh)

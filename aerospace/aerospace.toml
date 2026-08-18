@@ -10,19 +10,19 @@ after-login-command = []
 # 'after-startup-command' is run after 'after-login-command'
 # Available commands : https://nikitabobko.github.io/AeroSpace/commands
 after-startup-command = [
-  'exec-and-forget sketchybar',
-  'exec-and-forget borders active_color=0xFFffa04d inactive_color=0x22ffffff width=5.0',
+  # 'exec-and-forget sketchybar',
+  # 'exec-and-forget borders active_color=0xFFffa04d inactive_color=0x22ffffff width=5.0',
 ]
 
 # Notify Sketchybar about workspace change
 exec-on-workspace-change = [
   '/bin/bash',
   '-c',
-  '/opt/homebrew/opt/sketchybar/bin/sketchybar --trigger aerospace_workspace_change AEROSPACE_FOCUSED_WORKSPACE=$AEROSPACE_FOCUSED_WORKSPACE AEROSPACE_PREV_WORKSPACE=$AEROSPACE_PREV_WORKSPACE',
+  # '/opt/homebrew/opt/sketchybar/bin/sketchybar --trigger aerospace_workspace_change AEROSPACE_FOCUSED_WORKSPACE=$AEROSPACE_FOCUSED_WORKSPACE AEROSPACE_PREV_WORKSPACE=$AEROSPACE_PREV_WORKSPACE',
 ]
 
 # Start AeroSpace at login
-start-at-login = true
+# start-at-login = true
 
 # Normalizations. See: https://nikitabobko.github.io/AeroSpace/guide#normalization
 enable-normalization-flatten-containers = true
@@ -46,7 +46,7 @@ default-root-container-orientation = 'auto'
 # See https://nikitabobko.github.io/AeroSpace/guide#on-focus-changed-callbacks
 # See https://nikitabobko.github.io/AeroSpace/commands#move-mouse
 # Fallback value (if you omit the key): on-focused-monitor-changed = []
-on-focused-monitor-changed = ['move-mouse monitor-lazy-center']
+# on-focused-monitor-changed = ['move-mouse monitor-lazy-center']
 
 # You can effectively turn off macOS 'Hide application' (cmd-h) feature by toggling this flag
 # Useful if you don't use this macOS feature, but accidentally hit cmd-h or cmd-alt-h key
@@ -66,55 +66,55 @@ preset = 'qwerty'
 #                 Monitor pattern is the same as for 'workspace-to-monitor-force-assignment'.
 #                 See:
 #                 https://nikitabobko.github.io/AeroSpace/guide#assign-workspaces-to-monitors
-[workspace-to-monitor-force-assignment]
-code = 2
-terminal = 2
-debug = 2
-data = 2
-other = 2
-web = 1
-notes = 1
-comms = 1
-music = 1
+# [workspace-to-monitor-force-assignment]
+# code = 2
+# terminal = 2
+# debug = 2
+# data = 2
+# other = 2
+# web = 1
+# notes = 1
+# comms = 1
+# music = 1
 
-[[on-window-detected]]
-if.app-id = 'com.hnc.Discord'
-run = 'move-node-to-workspace comms'
+# [[on-window-detected]]
+# if.app-id = 'com.hnc.Discord'
+# run = 'move-node-to-workspace comms'
 
-[[on-window-detected]]
-if.app-id = 'org.mozilla.firefox'
-run = 'move-node-to-workspace web'
+# [[on-window-detected]]
+# if.app-id = 'org.mozilla.firefox'
+# run = 'move-node-to-workspace web'
 
-[[on-window-detected]]
-if.app-id = 'com.mitchellh.ghostty'
-run = 'move-node-to-workspace terminal'
+# [[on-window-detected]]
+# if.app-id = 'com.mitchellh.ghostty'
+# run = 'move-node-to-workspace terminal'
 
-[[on-window-detected]]
-if.app-id = 'com.microsoft.VSCode'
-run = 'move-node-to-workspace code'
+# [[on-window-detected]]
+# if.app-id = 'com.microsoft.VSCode'
+# run = 'move-node-to-workspace code'
 
-[[on-window-detected]]
-if.app-id = 'com.apple.Music'
-run = 'move-node-to-workspace music'
+# [[on-window-detected]]
+# if.app-id = 'com.apple.Music'
+# run = 'move-node-to-workspace music'
 
-[[on-window-detected]]
-if.app-id = 'md.obsidian'
-run = 'move-node-to-workspace notes'
+# [[on-window-detected]]
+# if.app-id = 'md.obsidian'
+# run = 'move-node-to-workspace notes'
 
-[[on-window-detected]]
-if.app-id = 'com.apple.finder'
-run = 'layout floating'
+# [[on-window-detected]]
+# if.app-id = 'com.apple.finder'
+# run = 'layout floating'
 
-[[on-window-detected]]
-if.app-id = 'com.microsoft.rdc.macos'
-run = 'layout floating'
+# [[on-window-detected]]
+# if.app-id = 'com.microsoft.rdc.macos'
+# run = 'layout floating'
 
 [gaps]
 inner.horizontal = 10
 inner.vertical = 10
 outer.left = 10
 outer.bottom = 10
-outer.top = 56
+outer.top = 10
 outer.right = 10
 
 # 'main' binding mode declaration
@@ -170,17 +170,17 @@ alt-minus = 'resize smart -50'
 alt-equal = 'resize smart +50'
 
 # See: https://nikitabobko.github.io/AeroSpace/commands#workspace
-alt-1 = 'workspace code'
-alt-2 = 'workspace terminal'
-alt-3 = 'workspace debug'
-alt-4 = 'workspace data'
-alt-5 = 'workspace other'
-alt-6 = 'workspace web'
-alt-7 = 'workspace notes'
-alt-8 = 'workspace comms'
-alt-9 = 'workspace music'
+# alt-1 = 'workspace code'
+# alt-2 = 'workspace terminal'
+# alt-3 = 'workspace debug'
+# alt-4 = 'workspace data'
+# alt-5 = 'workspace other'
+# alt-6 = 'workspace web'
+# alt-7 = 'workspace notes'
+# alt-8 = 'workspace comms'
+# alt-9 = 'workspace music'
 
-alt-i = 'exec-and-forget borders active_color=0xFFffa04d inactive_color=0x22ffffff width=5.0'
+# alt-i = 'exec-and-forget borders active_color=0xFFffa04d inactive_color=0x22ffffff width=5.0'
 
 alt-b = 'exec-and-forget open -a /Applications/Firefox.app'
 alt-c = 'exec-and-forget open -a /Applications/Visual Studio Code.app'
@@ -190,22 +190,22 @@ alt-n = 'exec-and-forget open -a /Applications/Obsidian.app'
 alt-enter = 'exec-and-forget open -a /Applications/Ghostty.app'
 
 # See: https://nikitabobko.github.io/AeroSpace/commands#move-node-to-workspace
-alt-shift-1 = ['move-node-to-workspace code', 'workspace code']
-alt-shift-2 = ['move-node-to-workspace terminal', 'workspace terminal']
-alt-shift-3 = ['move-node-to-workspace debug', 'workspace debug']
-alt-shift-4 = ['move-node-to-workspace data', 'workspace data']
-alt-shift-5 = ['move-node-to-workspace other', 'workspace other']
-alt-shift-6 = ['move-node-to-workspace web', 'workspace web']
-alt-shift-7 = ['move-node-to-workspace notes', 'workspace notes']
-alt-shift-8 = ['move-node-to-workspace comms', 'workspace comms']
-alt-shift-9 = ['move-node-to-workspace music', 'workspace music']
+# alt-shift-1 = ['move-node-to-workspace code', 'workspace code']
+# alt-shift-2 = ['move-node-to-workspace terminal', 'workspace terminal']
+# alt-shift-3 = ['move-node-to-workspace debug', 'workspace debug']
+# alt-shift-4 = ['move-node-to-workspace data', 'workspace data']
+# alt-shift-5 = ['move-node-to-workspace other', 'workspace other']
+# alt-shift-6 = ['move-node-to-workspace web', 'workspace web']
+# alt-shift-7 = ['move-node-to-workspace notes', 'workspace notes']
+# alt-shift-8 = ['move-node-to-workspace comms', 'workspace comms']
+# alt-shift-9 = ['move-node-to-workspace music', 'workspace music']
 
 alt-f = 'fullscreen'
 
 # See: https://nikitabobko.github.io/AeroSpace/commands#workspace-back-and-forth
-alt-tab = 'workspace-back-and-forth'
+# alt-tab = 'workspace-back-and-forth'
 # See: https://nikitabobko.github.io/AeroSpace/commands#move-workspace-to-monitor
-alt-shift-tab = 'move-workspace-to-monitor --wrap-around next'
+# alt-shift-tab = 'move-workspace-to-monitor --wrap-around next'
 
 # See: https://nikitabobko.github.io/AeroSpace/commands#mode
 alt-shift-semicolon = 'mode service'
