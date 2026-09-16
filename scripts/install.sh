@@ -23,6 +23,26 @@ SYMLINKS+=("aerospace")
 ln -sf "$DOTFILES/sketchybar" "$CONFIGS/sketchybar"
 SYMLINKS+=("sketchybar")
 
+# T3 Code reads published themes from ~/.t3/userdata/themes/<id>.json with
+# O_NOFOLLOW, so individual theme files cannot be symlinks. Link the whole
+# directory instead. The app creates an empty themes dir on first launch; an
+# empty directory is replaced, a non-empty one is left alone.
+T3_THEMES="$HOME/.t3/userdata/themes"
+if [ -L "$T3_THEMES" ]; then
+  ln -sfn "$DOTFILES/t3code/themes" "$T3_THEMES"
+  SYMLINKS+=("t3code/themes")
+elif [ -d "$T3_THEMES" ] && [ -z "$(ls -A "$T3_THEMES")" ]; then
+  rmdir "$T3_THEMES"
+  ln -s "$DOTFILES/t3code/themes" "$T3_THEMES"
+  SYMLINKS+=("t3code/themes")
+elif [ -e "$T3_THEMES" ]; then
+  printf 'Skipping %s: directory is not empty and not a symlink.\n' "$T3_THEMES"
+else
+  mkdir -p "$(dirname "$T3_THEMES")"
+  ln -s "$DOTFILES/t3code/themes" "$T3_THEMES"
+  SYMLINKS+=("t3code/themes")
+fi
+
 printf 'Linked: %s\n' "${SYMLINKS[*]}"
 
 "$DOTFILES/scripts/install-ai.sh"

@@ -108,6 +108,28 @@ buries the actual change in the diff.
   ordinary work. If you do parallelise, state file ownership up front so nothing
   collides.
 
+# Skills
+
+Check the skill list before your first action on every message. If a skill
+clearly matches, invoke it first and say so in one line. If you skip an obvious
+match, say why. In Claude Code the skill-check plugin carries the full rule.
+This is the routing for my skills:
+
+- Something is broken, throwing, failing or slow: `diagnosing-bugs` before you
+  propose a fix.
+- Building a feature or fixing a bug in code: `tdd`, at seams we agreed on.
+- Designing or restructuring a module, deciding where a seam goes:
+  `codebase-design` first, for the vocabulary. `design-an-interface` when there
+  is a real choice of shape.
+- A plan, idea or decision to stress-test: `grilling`.
+- New terminology, a `CONTEXT.md` or an ADR: `domain-modeling`.
+- A state model or UI question that a throwaway would answer: `prototype`.
+- Reviewing a branch, a PR or work in progress: `code-review`.
+- A merge or rebase conflict in progress: `resolving-merge-conflicts`.
+- Creating or editing a skill, `AGENTS.md` or `CLAUDE.md`: `writing-for-agents`.
+- Skills I trigger myself by slash command are not in your list. Don't guess
+  at them.
+
 # Verification
 
 - Prefer targeted checks over launching things: build, type check, analyzer,
@@ -157,6 +179,28 @@ buries the actual change in the diff.
 - Open real PRs, not drafts — drafts don't trigger review bots.
 - When you make a call I might not expect, name the alternative and why you
   didn't take it. One sentence.
+
+# Writing
+
+This applies to everything you write for me: messages, commit messages, PR
+descriptions, code comments, docs.
+
+- No em dashes, no en dashes, no hyphen standing in for a dash. End the
+  sentence or use a comma.
+- Colons only before a list or an example, never as a mid-sentence connector.
+- Sentence case headings. No decorative emojis. Straight quotes.
+- Bold sparingly. A bold lead-in that names the item and is followed by new
+  detail is fine. A bold label that restates the line is not.
+- Plain words. Not "delve", "crucial", "leverage", "robust", "seamless",
+  "landscape", "showcase", "underscore", "testament", "pivotal". Not "serves
+  as" or "boasts" where "is" or "has" works.
+- State the point. No "not just X, but Y", no forced groups of three, no
+  synonym cycling, no "experts say" without a name.
+- No chatbot phrases: "I hope this helps", "Let me know if", "Certainly",
+  "Great question".
+- Have a voice. Short sentences, then a longer one. Specific beats generic. An
+  opinion beats a neutral list of pros and cons.
+- For a full editing pass over existing text, I'll call `/unslop`.
 
 ---
 

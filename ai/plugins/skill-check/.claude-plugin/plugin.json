@@ -1,0 +1,12 @@
+{
+  "name": "skill-check",
+  "displayName": "Skill Check",
+  "version": "0.1.0",
+  "description": "Makes Claude Code check its skill list before acting, invoke a clear match, and say so in one line. Fills the trigger-rule gap that Codex ships natively.",
+  "author": {
+    "name": "kratofl",
+    "url": "https://github.com/kratofl"
+  },
+  "license": "MIT",
+  "keywords": ["skills", "hooks", "session-start"]
+}

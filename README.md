@@ -39,6 +39,15 @@ After adding a skill, run the focused AI installer again to create its links:
 $HOME/.dotfiles/scripts/install-ai.sh
 ```
 
+### T3 Code
+
+Themes for [T3 Code](https://t3.gg/code) live in `t3code/themes/`, one JSON file per theme. The file name is the theme id.
+
+- `alpsee.json` is a muted slate and brass theme with a light variant.
+- `latveria.json` is built from the Doomsday castle wallpaper: near-black green, Doom's magic as the accent, stained glass gold for warnings. It ships a parchment light variant.
+
+The installation script symlinks the whole directory to `~/.t3/userdata/themes`, which T3 Code watches, so a new file shows up in the theme picker without a restart. The files must not be symlinked individually because the app opens them with `O_NOFOLLOW`.
+
 ### Git
 Update your email and name in the git config. `$HOME/.config/git/config`
 ```config
